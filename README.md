@@ -1,23 +1,33 @@
 # vtree
 
-<!--
-    [![build status][1]][2]
-    [![NPM version][3]][4]
-    [![Coverage Status][5]][6]
-    [![gemnasium Dependency Status][7]][8]
-    [![Davis Dependency status][9]][10]
--->
+A realtime tree diffing algorithm
 
-<!-- [![browser support][11]][12] -->
+## Motivation
 
-a tree diffing algorithm
+`vtree` currently exists as part of `virtual-dom`. It is used for imitating
+diff operations between two `vnode` structures that imitate the structure of
+the active DOM node structure in the browser.
+
+This module is currently re-exporting the `vtree` from `virtual-dom`, but the
+aim is to eventually make this a standalone module and have `virtual-dom`
+depend on `vtree` instead.
 
 ## Example
 
 ```js
-var vtree = require("vtree")
+var VNode = require("vtree/vnode")
+var diff = require("vtree/diff")
 
-// TODO. Show example
+var leftNode = new VNode("div")
+var rightNode = new VNode("text")
+
+var patches = diff(leftNode, rightNode)
+/*
+  -> {
+    a: lefNode,
+    0: vpatch<REPLACE>(rightNode) // a replace operation for the first node
+  }
+*/
 ```
 
 ## Installation
@@ -29,16 +39,3 @@ var vtree = require("vtree")
  - Matt Esch
 
 ## MIT Licenced
-
-  [1]: https://secure.travis-ci.org/Matt Esch/vtree.png
-  [2]: https://travis-ci.org/Matt Esch/vtree
-  [3]: https://badge.fury.io/js/vtree.png
-  [4]: https://badge.fury.io/js/vtree
-  [5]: https://coveralls.io/repos/Matt Esch/vtree/badge.png
-  [6]: https://coveralls.io/r/Matt Esch/vtree
-  [7]: https://gemnasium.com/Matt Esch/vtree.png
-  [8]: https://gemnasium.com/Matt Esch/vtree
-  [9]: https://david-dm.org/Matt Esch/vtree.png
-  [10]: https://david-dm.org/Matt Esch/vtree
-  [11]: https://ci.testling.com/Matt Esch/vtree.png
-  [12]: https://ci.testling.com/Matt Esch/vtree

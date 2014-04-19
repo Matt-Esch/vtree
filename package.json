@@ -7,21 +7,27 @@
   "repository": "git://github.com/Matt Esch/vtree.git",
   "main": "index",
   "homepage": "https://github.com/Matt Esch/vtree",
-  "contributors": [{
-    "name": "Matt Esch"
-  }],
+  "contributors": [
+    {
+      "name": "Matt Esch"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/Matt Esch/vtree/issues",
     "email": "matt@mattesch.info"
   },
-  "dependencies": {},
+  "dependencies": {
+    "virtual-dom": "0.0.8"
+  },
   "devDependencies": {
     "tape": "~1.0.2"
   },
-  "licenses": [{
-    "type": "MIT",
-    "url": "http://github.com/Matt Esch/vtree/raw/master/LICENSE"
-  }],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/Matt Esch/vtree/raw/master/LICENSE"
+    }
+  ],
   "scripts": {
     "test": "node ./test/index.js",
     "start": "node ./index.js",

@@ -19,7 +19,9 @@
   "dependencies": {
     "virtual-dom": "0.0.8"
   },
-  "devDependencies": { },
+  "devDependencies": {
+    "tape": "^2.12.3"
+  },
   "licenses": [
     {
       "type": "MIT",

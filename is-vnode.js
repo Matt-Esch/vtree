@@ -1,3 +1,7 @@
-var isVNode = require("virtual-dom/vtree/is-vnode")
+var version = require("./version")
 
-module.exports = isVNode
+module.exports = isVirtualNode
+
+function isVirtualNode(x) {
+    return x && x.type === "VirtualNode" && x.version === version
+}

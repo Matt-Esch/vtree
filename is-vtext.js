@@ -1,3 +1,7 @@
-var isVText = require("virtual-dom/vtree/is-vtext")
+var version = require("./version")
 
-module.exports = isVText
+module.exports = isVirtualText
+
+function isVirtualText(x) {
+    return x && x.type === "VirtualText" && x.version === version
+}

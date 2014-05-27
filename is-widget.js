@@ -1,3 +1,5 @@
-var isWidget = require("virtual-dom/vtree/is-widget")
-
 module.exports = isWidget
+
+function isWidget(w) {
+    return w && w.type === "Widget"
+}

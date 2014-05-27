@@ -1,3 +1,6 @@
-var isVHook = require("virtual-dom/vtree/is-vhook")
+module.exports = isHook
 
-module.exports = isVHook
+function isHook(hook) {
+    return hook && typeof hook.hook === "function" &&
+        !hook.hasOwnProperty("hook")
+}

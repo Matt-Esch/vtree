@@ -16,11 +16,10 @@
     "url": "https://github.com/Matt Esch/vtree/issues",
     "email": "matt@mattesch.info"
   },
-  "dependencies": {
-    "virtual-dom": "0.0.8"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "tape": "^2.12.3"
+    "tape": "^2.13.1",
+    "virtual-dom": "0.0.10"
   },
   "licenses": [
     {

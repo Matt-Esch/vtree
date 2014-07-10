@@ -249,16 +249,23 @@ function reorder(aChildren, bChildren) {
     var freeIndex = 0
     var i = 0
     var moveIndex = 0
-    var moves = shuffle.moves = {}
+    var moves = {}
+    var removes = moves.removes = {}
+    var hasMoves = false
 
     while (freeIndex < len) {
         var move = aMatch[i]
         if (move !== undefined) {
             shuffle[i] = bChildren[move]
-            moves[move] = moveIndex++
+            if (move !== moveIndex) {
+                moves[move] = moveIndex
+                hasMoves = true
+            }
+            moveIndex++
         } else if (i in aMatch) {
             shuffle[i] = undefined
-            moves[move] = moveIndex++
+            removes[i] = moveIndex++
+            hasMoves = true
         } else {
             while (bMatch[freeIndex] !== undefined) {
                 freeIndex++
@@ -267,13 +274,21 @@ function reorder(aChildren, bChildren) {
             if (freeIndex < len) {
                 var freeChild = bChildren[freeIndex]
                 if (freeChild) {
-                    moves[freeIndex] = moveIndex++
                     shuffle[i] = freeChild
+                    if (freeIndex !== moveIndex) {
+                        hasMoves = true
+                        moves[freeIndex] = moveIndex
+                    }
+                    moveIndex++
                 }
                 freeIndex++
             }
         }
         i++
+    }
+
+    if (hasMoves) {
+        shuffle.moves = moves
     }
 
     return shuffle

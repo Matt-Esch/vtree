@@ -251,6 +251,7 @@ function reorder(aChildren, bChildren) {
     var moveIndex = 0
     var moves = {}
     var removes = moves.removes = {}
+    var reverse = moves.reverse = {}
     var hasMoves = false
 
     while (freeIndex < len) {
@@ -259,6 +260,7 @@ function reorder(aChildren, bChildren) {
             shuffle[i] = bChildren[move]
             if (move !== moveIndex) {
                 moves[move] = moveIndex
+                reverse[moveIndex] = move
                 hasMoves = true
             }
             moveIndex++
@@ -278,6 +280,7 @@ function reorder(aChildren, bChildren) {
                     if (freeIndex !== moveIndex) {
                         hasMoves = true
                         moves[freeIndex] = moveIndex
+                        reverse[moveIndex] = freeIndex
                     }
                     moveIndex++
                 }

@@ -1,6 +1,6 @@
 {
   "name": "vtree",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "a realtime tree diffing algorithm",
   "keywords": [],
   "author": "Matt Esch <matt@mattesch.info>",

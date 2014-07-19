@@ -6,6 +6,7 @@ var isVNode = require("./is-vnode")
 var isVText = require("./is-vtext")
 var isWidget = require("./is-widget")
 var isThunk = require("./is-thunk")
+var handleThunk = require("./handle-thunk")
 
 module.exports = diff
 
@@ -16,14 +17,9 @@ function diff(a, b) {
 }
 
 function walk(a, b, patch, index) {
-    if (isThunk(b)) {
-        if (isThunk(a)) {
-            b = b.vnode = b.render(a)
-            a = a.vnode
-        } else {
-            b = b.vnode = b.render(null)
-        }
-    }
+    var nodes = handleThunk(a, b);
+    a = nodes.a
+    b = nodes.b
 
     if (a === b) {
         hooks(b, patch, index)

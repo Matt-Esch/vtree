@@ -1,6 +1,6 @@
 {
   "name": "vtree",
-  "version": "0.0.5",
+  "version": "0.0.13",
   "description": "a realtime tree diffing algorithm",
   "keywords": [],
   "author": "Matt Esch <matt@mattesch.info>",
@@ -21,7 +21,7 @@
     "is-object": "^0.1.2"
   },
   "devDependencies": {
-    "tape": "^2.13.1",
+    "tape": "^2.13.3",
     "virtual-dom": "0.0.10"
   },
   "licenses": [
@@ -31,7 +31,9 @@
     }
   ],
   "scripts": {
-    "test": "node ./test/index.js"
+    "test": "node ./test/index.js",
+    "cover": "istanbul cover --report none --print detail ./test/index.js",
+    "view-cover": "istanbul report html && open ./coverage/index.html"
   },
   "testling": {
     "files": "test/index.js",

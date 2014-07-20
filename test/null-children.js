@@ -19,7 +19,7 @@ test("null child causes remove", function (assert) {
     }, [new VText("footer")])
 
     var leftNode = new VNode("div", {
-        className: "containter"
+        className: "container"
     }, [
         header,
         body,
@@ -39,13 +39,15 @@ test("null child causes remove", function (assert) {
     for(var key in patches) {
         if (key === "a") {
             assert.equal(patches[key], leftNode)
-        } else if (key === "2") {
+        } else if (key === "3") {
             var vpatch = patches[key]
             assert.equal(vpatch.type, VPatch.REMOVE)
             assert.equal(vpatch.vNode, body)
             assert.equal(vpatch.patch, null)
         } else {
-            assert.notOk("Should only be a remove op for node 2")
+            assert.fail("Should only be a remove op for node 3")
         }
     }
+
+    assert.end();
 })

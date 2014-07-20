@@ -299,7 +299,7 @@ function keyIndex(children) {
     for (i = 0; i < children.length; i++) {
         var child = children[i]
 
-        if (child.key !== undefined) {
+        if (child && child.key !== undefined) {
             keys = keys || {}
             keys[child.key] = i
         }

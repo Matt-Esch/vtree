@@ -17,12 +17,12 @@ function diff(a, b) {
 }
 
 function walk(a, b, patch, index) {
-    var nodes = handleThunk(a, b);
-    a = nodes.a
-    b = nodes.b
-
     if (a === b) {
-        hooks(b, patch, index)
+        if (isThunk(a) || isThunk(b)) {
+            thunks(a, b, patch, index)
+        } else {
+            hooks(b, patch, index)
+        }
         return
     }
 
@@ -31,6 +31,8 @@ function walk(a, b, patch, index) {
     if (b == null) {
         apply = appendPatch(apply, new VPatch(VPatch.REMOVE, a, b))
         destroyWidgets(a, patch, index)
+    } else if (isThunk(a) || isThunk(b)) {
+        thunks(a, b, patch, index)
     } else if (isVNode(b)) {
         if (isVNode(a)) {
             if (a.tagName === b.tagName &&
@@ -141,7 +143,8 @@ function diffChildren(a, b, patch, apply, index) {
         if (!leftNode) {
             if (rightNode) {
                 // Excess nodes in b need to be added
-                apply = appendPatch(apply, new VPatch(VPatch.INSERT, null, rightNode))
+                apply = appendPatch(apply,
+                    new VPatch(VPatch.INSERT, null, rightNode))
             }
         } else if (!rightNode) {
             if (leftNode) {
@@ -187,6 +190,25 @@ function destroyWidgets(vNode, patch, index) {
             }
         }
     }
+}
+
+// Create a sub-patch for thunks
+function thunks(a, b, patch, index) {
+    var nodes = handleThunk(a, b);
+    var thunkPatch = diff(nodes.a, nodes.b)
+    if (hasPatches(thunkPatch)) {
+        patch[index] = new VPatch(VPatch.THUNK, null, thunkPatch)
+    }
+}
+
+function hasPatches(patch) {
+    for (var index in patch) {
+        if (index !== "a") {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 // Execute hooks when two nodes are identical

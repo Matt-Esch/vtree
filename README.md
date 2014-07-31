@@ -8,10 +8,6 @@ A realtime tree diffing algorithm
 diff operations between two `vnode` structures that imitate the structure of
 the active DOM node structure in the browser.
 
-This module is currently re-exporting the `vtree` from `virtual-dom`, but the
-aim is to eventually make this a standalone module and have `virtual-dom`
-depend on `vtree` instead.
-
 ## Example
 
 ```js

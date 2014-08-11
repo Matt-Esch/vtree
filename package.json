@@ -4,16 +4,16 @@
   "description": "a realtime tree diffing algorithm",
   "keywords": [],
   "author": "Matt Esch <matt@mattesch.info>",
-  "repository": "git://github.com/Matt Esch/vtree.git",
+  "repository": "git://github.com/Matt-Esch/vtree.git",
   "main": "index",
-  "homepage": "https://github.com/Matt Esch/vtree",
+  "homepage": "https://github.com/Matt-Esch/vtree",
   "contributors": [
     {
       "name": "Matt Esch"
     }
   ],
   "bugs": {
-    "url": "https://github.com/Matt Esch/vtree/issues",
+    "url": "https://github.com/Matt-Esch/vtree/issues",
     "email": "matt@mattesch.info"
   },
   "dependencies": {
@@ -27,7 +27,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/Matt Esch/vtree/raw/master/LICENSE"
+      "url": "http://github.com/Matt-Esch/vtree/raw/master/LICENSE"
     }
   ],
   "scripts": {

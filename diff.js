@@ -43,12 +43,11 @@ function walk(a, b, patch, index) {
                     apply = appendPatch(apply,
                         new VPatch(VPatch.PROPS, a, propsPatch))
                 }
+                apply = diffChildren(a, b, patch, apply, index)
             } else {
                 apply = appendPatch(apply, new VPatch(VPatch.VNODE, a, b))
                 destroyWidgets(a, patch, index)
             }
-
-            apply = diffChildren(a, b, patch, apply, index)
         } else {
             apply = appendPatch(apply, new VPatch(VPatch.VNODE, a, b))
             destroyWidgets(a, patch, index)

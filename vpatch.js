@@ -1,4 +1,5 @@
 var version = require("./version")
+var assign = require('object.assign')
 
 VirtualPatch.NONE = 0
 VirtualPatch.VTEXT = 1
@@ -20,3 +21,7 @@ function VirtualPatch(type, vNode, patch) {
 
 VirtualPatch.prototype.version = version
 VirtualPatch.prototype.type = "VirtualPatch"
+
+VirtualPatch.prototype.toJSON = function () {
+  return assign({}, this, { version: this.version, type: this.type })
+}

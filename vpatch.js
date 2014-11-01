@@ -18,5 +18,3 @@ function VirtualPatch(type, vNode, patch) {
     this.vNode = vNode
     this.patch = patch
 }
-
-VirtualPatch.prototype.type = "VirtualPatch"

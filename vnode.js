@@ -2,7 +2,6 @@ var version = require("./version")
 var isVNode = require("./is-vnode")
 var isWidget = require("./is-widget")
 var isVHook = require("./is-vhook")
-var assign = require('object.assign')
 
 module.exports = VirtualNode
 
@@ -10,6 +9,8 @@ var noProperties = {}
 var noChildren = []
 
 function VirtualNode(tagName, properties, children, key, namespace) {
+    this.version = version
+    this.type = "VirtualNode"
     this.tagName = tagName
     this.properties = properties || noProperties
     this.children = children || noChildren
@@ -58,11 +59,4 @@ function VirtualNode(tagName, properties, children, key, namespace) {
     this.hasWidgets = hasWidgets
     this.hooks = hooks
     this.descendantHooks = descendantHooks
-}
-
-VirtualNode.prototype.version = version
-VirtualNode.prototype.type = "VirtualNode"
-
-VirtualNode.prototype.toJSON = function () {
-  return assign({}, this, { version: this.version, type: this.type })
 }

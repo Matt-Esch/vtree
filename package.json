@@ -17,7 +17,7 @@
     "email": "matt@mattesch.info"
   },
   "dependencies": {
-    "is-object": "^0.1.0",
+    "is-object": "^0.1.2",
     "x-is-array": "^0.1.0"
   },
   "devDependencies": {

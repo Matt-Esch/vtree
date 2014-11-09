@@ -24,7 +24,9 @@ function VirtualNode(tagName, properties, children, key, namespace) {
     for (var propName in properties) {
         if (properties.hasOwnProperty(propName)) {
             var property = properties[propName]
-            if (isVHook(property)) {
+            if (isVHook(property) &&
+                (!property.soft || property.hasOwnProperty("soft"))
+            ) {
                 if (!hooks) {
                     hooks = {}
                 }

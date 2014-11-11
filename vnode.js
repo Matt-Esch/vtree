@@ -2,6 +2,7 @@ var version = require("./version")
 var isVNode = require("./is-vnode")
 var isWidget = require("./is-widget")
 var isVHook = require("./is-vhook")
+var handleThunk = require("./handle-thunk")
 
 module.exports = VirtualNode
 
@@ -36,18 +37,19 @@ function VirtualNode(tagName, properties, children, key, namespace) {
 
     for (var i = 0; i < count; i++) {
         var child = children[i]
-        if (isVNode(child)) {
+        var vnode = handleThunk(child).a
+        if (isVNode(vnode)) {
             descendants += child.count || 0
 
-            if (!hasWidgets && child.hasWidgets) {
+            if (!hasWidgets && vnode.hasWidgets) {
                 hasWidgets = true
             }
 
             if (!descendantHooks && (child.hooks || child.descendantHooks)) {
                 descendantHooks = true
             }
-        } else if (!hasWidgets && isWidget(child)) {
-            if (typeof child.destroy === "function") {
+        } else if (!hasWidgets && isWidget(vnode)) {
+            if (typeof vnode.destroy === "function") {
                 hasWidgets = true
             }
         }

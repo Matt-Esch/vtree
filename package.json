@@ -21,8 +21,7 @@
     "is-object": "^0.1.2"
   },
   "devDependencies": {
-    "tape": "^2.13.3",
-    "virtual-dom": "0.0.10"
+    "tape": "^3.0.3"
   },
   "licenses": [
     {

@@ -10,6 +10,8 @@ var noProperties = {}
 var noChildren = []
 
 function VirtualNode(tagName, properties, children, key, namespace) {
+    this.version = version
+    this.type = "VirtualNode"
     this.tagName = tagName
     this.properties = properties || noProperties
     this.children = children || noChildren
@@ -67,6 +69,3 @@ function VirtualNode(tagName, properties, children, key, namespace) {
     this.hooks = hooks
     this.descendantHooks = descendantHooks
 }
-
-VirtualNode.prototype.version = version
-VirtualNode.prototype.type = "VirtualNode"

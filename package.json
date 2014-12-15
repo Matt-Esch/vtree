@@ -17,8 +17,8 @@
     "email": "matt@mattesch.info"
   },
   "dependencies": {
-    "x-is-array": "^0.1.0",
-    "is-object": "^0.1.2"
+    "is-object": "^0.1.2",
+    "x-is-array": "^0.1.0"
   },
   "devDependencies": {
     "tape": "^3.0.3"

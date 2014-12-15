@@ -13,10 +13,8 @@ VirtualPatch.THUNK = 8
 module.exports = VirtualPatch
 
 function VirtualPatch(type, vNode, patch) {
+    this.version = version
     this.type = Number(type)
     this.vNode = vNode
     this.patch = patch
 }
-
-VirtualPatch.prototype.version = version
-VirtualPatch.prototype.type = "VirtualPatch"

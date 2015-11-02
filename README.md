@@ -2,7 +2,7 @@
 
 A realtime tree diffing algorithm
 
-Please note that this now lives under https://github.com/Matt-Esch/virtual-dom and all related issues shoud be opened there. This repository will eventually become a build artifact of `virtual-dom` for developers with an advanced usage pattern.
+Please note that this now lives under https://github.com/Matt-Esch/virtual-dom and all related issues should be opened there. This repository will eventually become a build artifact of `virtual-dom` for developers with an advanced usage pattern.
 
 ## Motivation
 
